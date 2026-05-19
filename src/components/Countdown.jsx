@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { Reveal } from './Reveal'
 import { SectionHeading } from './SectionHeading'
+import { SectionWrapper } from './SectionWrapper'
 
 function getTimeLeft(targetDate) {
   const difference = Math.max(new Date(targetDate).getTime() - Date.now(), 0)
@@ -32,7 +32,7 @@ export function Countdown({ targetDate }) {
   ]
 
   return (
-    <Reveal className="section countdown-section">
+    <SectionWrapper id="countdown" className="countdown-section">
       <SectionHeading eyebrow="Save the Date" title="The Countdown to Forever Has Begun" />
       <div className="countdown-grid" aria-live="polite">
         {units.map(([label, value]) => (
@@ -42,6 +42,6 @@ export function Countdown({ targetDate }) {
           </div>
         ))}
       </div>
-    </Reveal>
+    </SectionWrapper>
   )
 }

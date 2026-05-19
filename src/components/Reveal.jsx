@@ -1,7 +1,7 @@
 import { forwardRef, useEffect, useRef, useState } from 'react'
 
 export const Reveal = forwardRef(function Reveal(
-  { as: Component = 'section', className = '', children, delay = 0 },
+  { as: Component = 'section', className = '', children, delay = 0, ...props },
   forwardedRef,
 ) {
   const localRef = useRef(null)
@@ -39,6 +39,7 @@ export const Reveal = forwardRef(function Reveal(
       ref={setRefs}
       className={`reveal ${isVisible ? 'is-visible' : ''} ${className}`}
       style={{ '--reveal-delay': `${delay}ms` }}
+      {...props}
     >
       {children}
     </Component>

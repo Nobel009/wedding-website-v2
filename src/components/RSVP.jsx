@@ -1,14 +1,16 @@
 import { forwardRef, useState } from 'react'
 import { Icon } from './Icon'
-import { Reveal } from './Reveal'
 import { SectionHeading } from './SectionHeading'
+import { SectionWrapper } from './SectionWrapper'
 
-export const RSVP = forwardRef(function RSVP(_, ref) {
+export const RSVP = forwardRef(function RSVP({ rsvp, couple }, ref) {
   const [showSuccess, setShowSuccess] = useState(false)
+  const [error, setError] = useState('')
   const [form, setForm] = useState({
-    name: '',
+    fullName: '',
     attending: 'Yes',
-    guest: 'No',
+    guests: '1',
+    meal: '',
     message: '',
   })
 
@@ -19,24 +21,43 @@ export const RSVP = forwardRef(function RSVP(_, ref) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    if (!form.fullName.trim()) {
+      setError('Please enter your full name.')
+      return
+    }
+    if (Number(form.guests) < 0 || Number(form.guests) > rsvp.guestLimit) {
+      setError('Please enter a valid number of guests.')
+      return
+    }
+    if (!form.meal) {
+      setError('Please choose a meal preference.')
+      return
+    }
+
+    const savedResponses = JSON.parse(localStorage.getItem('weddingRsvps') || '[]')
+    localStorage.setItem(
+      'weddingRsvps',
+      JSON.stringify([...savedResponses, { ...form, submittedAt: new Date().toISOString() }]),
+    )
+    setError('')
     setShowSuccess(true)
     event.currentTarget.reset()
-    setForm({ name: '', attending: 'Yes', guest: 'No', message: '' })
+    setForm({ fullName: '', attending: 'Yes', guests: '1', meal: '', message: '' })
   }
 
   return (
-    <Reveal ref={ref} className="section rsvp-section">
+    <SectionWrapper ref={ref} id="rsvp" className="rsvp-section">
       <SectionHeading eyebrow="Kindly Reply" title="RSVP">
-        Please respond by November 12, 2026.
+        Please respond by {rsvp.deadline}.
       </SectionHeading>
 
       <form className="rsvp-form" onSubmit={handleSubmit}>
         <label>
-          Name
+          Full name
           <input
-            name="name"
+            name="fullName"
             type="text"
-            value={form.name}
+            value={form.fullName}
             onChange={updateField}
             placeholder="Your full name"
             required
@@ -44,23 +65,39 @@ export const RSVP = forwardRef(function RSVP(_, ref) {
         </label>
 
         <label>
-          Will you attend?
+          Attendance
           <select name="attending" value={form.attending} onChange={updateField}>
-            <option>Yes</option>
-            <option>No</option>
+            {rsvp.attendanceOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
           </select>
         </label>
 
         <label>
-          Bringing a guest?
-          <select name="guest" value={form.guest} onChange={updateField}>
-            <option>Yes</option>
-            <option>No</option>
+          Number of guests
+          <input
+            name="guests"
+            type="number"
+            min="0"
+            max={rsvp.guestLimit}
+            value={form.guests}
+            onChange={updateField}
+            required
+          />
+        </label>
+
+        <label>
+          Meal preference
+          <select name="meal" value={form.meal} onChange={updateField} required>
+            <option value="">Select one</option>
+            {rsvp.mealOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
           </select>
         </label>
 
         <label>
-          Message
+          Message for couple
           <textarea
             name="message"
             value={form.message}
@@ -69,6 +106,8 @@ export const RSVP = forwardRef(function RSVP(_, ref) {
             rows="4"
           />
         </label>
+
+        {error ? <p className="form-error">{error}</p> : null}
 
         <button className="primary-button" type="submit">
           Send RSVP
@@ -82,14 +121,14 @@ export const RSVP = forwardRef(function RSVP(_, ref) {
               <Icon name="heart" />
             </div>
             <p className="eyebrow">Response Received</p>
-            <h2 id="rsvp-success-title">Thank you, beautifully noted.</h2>
-            <p>Emma and Lucas are grateful for your reply.</p>
+            <h2 id="rsvp-success-title">Thank you for your response</h2>
+            <p>{couple.names} are grateful for your reply.</p>
             <button className="secondary-button" type="button" onClick={() => setShowSuccess(false)}>
               Close
             </button>
           </div>
         </div>
       ) : null}
-    </Reveal>
+    </SectionWrapper>
   )
 })

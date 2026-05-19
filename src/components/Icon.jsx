@@ -27,6 +27,15 @@ const icons = {
       <path d="M16 3c2 1 3 3 3 6s-1 5-3 6" />
     </>
   ),
+  church: (
+    <>
+      <path d="M12 3v5" />
+      <path d="M9.5 5.5h5" />
+      <path d="M5 21V10l7-5 7 5v11" />
+      <path d="M9 21v-6a3 3 0 0 1 6 0v6" />
+      <path d="M4 21h16" />
+    </>
+  ),
   music: (
     <>
       <path d="M9 18V5l10-2v13" />
@@ -45,6 +54,45 @@ const icons = {
     <>
       <path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z" />
       <circle cx="12" cy="10" r="2.5" />
+    </>
+  ),
+  calendar: (
+    <>
+      <path d="M7 3v4" />
+      <path d="M17 3v4" />
+      <path d="M4 8h16" />
+      <path d="M5 5h14v16H5V5Z" />
+      <path d="M8 12h3" />
+      <path d="M8 16h6" />
+    </>
+  ),
+  copy: (
+    <>
+      <path d="M8 8h11v11H8V8Z" />
+      <path d="M5 16H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h11a1 1 0 0 1 1 1v1" />
+    </>
+  ),
+  share: (
+    <>
+      <circle cx="18" cy="5" r="3" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="19" r="3" />
+      <path d="m8.6 13.5 6.8 4" />
+      <path d="m15.4 6.5-6.8 4" />
+    </>
+  ),
+  home: (
+    <>
+      <path d="m3 11 9-8 9 8" />
+      <path d="M5 10v10h14V10" />
+      <path d="M10 20v-6h4v6" />
+    </>
+  ),
+  info: (
+    <>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M12 10v6" />
+      <path d="M12 7h.01" />
     </>
   ),
   gift: (

@@ -1,29 +1,14 @@
-import { useRef } from 'react'
 import { Icon } from './Icon'
-import { Reveal } from './Reveal'
+import { SectionWrapper } from './SectionWrapper'
 
 export function MusicPlayer({ music, isPlaying, onToggle }) {
-  const audioRef = useRef(null)
-
-  const handleToggle = () => {
-    if (music.audioSrc && audioRef.current) {
-      if (audioRef.current.paused) {
-        audioRef.current.play()
-      } else {
-        audioRef.current.pause()
-      }
-    }
-
-    onToggle()
-  }
-
   return (
-    <Reveal className="section music-section">
+    <SectionWrapper id="music" className="music-section" showDivider={false}>
       <div className="music-card">
         <button
           className="round-button"
           type="button"
-          onClick={handleToggle}
+          onClick={onToggle}
           aria-label={isPlaying ? 'Pause music' : 'Play music'}
         >
           <Icon name={isPlaying ? 'pause' : 'play'} />
@@ -41,7 +26,6 @@ export function MusicPlayer({ music, isPlaying, onToggle }) {
           <span />
         </div>
       </div>
-      {music.audioSrc ? <audio ref={audioRef} src={music.audioSrc} loop /> : null}
-    </Reveal>
+    </SectionWrapper>
   )
 }
