@@ -5,7 +5,7 @@ import { SectionWrapper } from './SectionWrapper'
 export function Venue({ venues }) {
   return (
     <SectionWrapper id="venues" className="venue-section" wide>
-      <SectionHeading eyebrow="The Venues" title="The Venues">
+      <SectionHeading title="The Venues">
         Two beautiful places for one unforgettable celebration.
       </SectionHeading>
 

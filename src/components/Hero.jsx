@@ -1,5 +1,3 @@
-import { GoldDivider } from './GoldDivider'
-
 export function Hero({ data }) {
   const weddingDate = new Date(data.wedding.isoDate)
   const month = weddingDate.toLocaleString('en', { month: 'long' })
@@ -15,10 +13,18 @@ export function Hero({ data }) {
 
       <div className="hero-content">
         <p className="script hero-kicker">{data.hero.eyebrow}</p>
-        <h1>{data.couple.names}</h1>
+        <div className="hero-name-block">
+          <div className="hero-name-ornament" aria-hidden="true">
+            <span />
+            <span />
+          </div>
+          <h1>{data.couple.names}</h1>
+          <div className="hero-name-ornament" aria-hidden="true">
+            <span />
+            <span />
+          </div>
+        </div>
         <p className="hero-invite">{data.hero.invitation}</p>
-
-        <GoldDivider />
 
         <div className="hero-meta">
           <div className="hero-date-lockup" aria-label={`${data.wedding.displayDate} at ${data.wedding.time}`}>
@@ -34,9 +40,12 @@ export function Hero({ data }) {
               <span>At {data.wedding.time}</span>
             </div>
           </div>
+          <div className="hero-date-flourish" aria-hidden="true">
+            <span />
+            <span />
+          </div>
           <span className="hero-location">{data.wedding.location}</span>
         </div>
-
       </div>
     </section>
   )

@@ -3,7 +3,7 @@ export const weddingData = {
     bride: 'Emma',
     groom: 'Lucas',
     names: 'Emma & Lucas',
-    initials: 'E L',
+    initials: 'E & L',
   },
   wedding: {
     isoDate: '2026-12-12T15:30:00+08:00',
