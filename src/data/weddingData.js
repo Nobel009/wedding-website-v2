@@ -15,8 +15,7 @@ export const weddingData = {
   hero: {
     image: '/images/wedding-hero.png',
     eyebrow: 'We Do',
-    invitation:
-      'Together with their families invite you to their wedding celebration',
+    invitation: '',
   },
   music: {
     title: 'Tahanan (Live at The Cozy Cove)',

@@ -261,17 +261,28 @@ textarea:focus-visible {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: brightness(1.16) contrast(1.03) saturate(1.02);
+  filter:
+    brightness(1.05)
+    contrast(1.08)
+    saturate(1.02);
+  /* filter: brightness(1.16) contrast(1.03) saturate(1.02); */
   animation: heroScale 1200ms ease both;
 }
 
 .hero-overlay {
   z-index: -2;
   background:
+    radial-gradient(
+      ellipse at center 50%,
+      rgba(255, 250, 235, 0.015) 0%,
+      rgba(0, 0, 0, 0.12) 44%,
+      rgba(0, 0, 0, 0.50) 100%
+    );
+  /* background:
     radial-gradient(ellipse at center 16%, rgba(255, 232, 184, 0.46), transparent 34%),
     radial-gradient(ellipse at center 50%, rgba(255, 245, 220, 0.08), rgba(0, 0, 0, 0.18) 54%, rgba(0, 0, 0, 0.68) 100%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.06) 38%, rgba(0, 0, 0, 0.82)),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.54), transparent 32%, transparent 68%, rgba(0, 0, 0, 0.54));
+    linear-gradient(90deg, rgba(0, 0, 0, 0.54), transparent 32%, transparent 68%, rgba(0, 0, 0, 0.54)); */
 }
 
 .hero-floral {
@@ -329,9 +340,10 @@ textarea:focus-visible {
 .hero-name-block {
   position: relative;
   width: 100%;
-  margin: 10px auto 46px;
+  margin: 10px auto auto;
   overflow: visible;
   text-align: center;
+  margin-top: 34px;
 }
 
 .hero-name-ornament {
@@ -410,6 +422,7 @@ textarea:focus-visible {
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+  transform: translateY(32px);
   text-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
@@ -434,8 +447,7 @@ textarea:focus-visible {
 
 .hero-date-stack span:first-child {
   position: relative;
-  top: 36px;
-  margin-bottom: 12px;
+  top: 8px;
   color: #d7b56c;
   font-size: 0.92rem;
   letter-spacing: 0.24em;
@@ -443,7 +455,7 @@ textarea:focus-visible {
 }
 
 .hero-date-stack span:last-child {
-  margin-top: 12px;
+  margin-top: 10px;
   color: #d7b56c;
   font-size: 0.9rem;
   letter-spacing: 0.22em;
@@ -452,7 +464,7 @@ textarea:focus-visible {
 
 .hero-date-stack strong {
   position: relative;
-  top: 10px;
+  top: 0;
   color: var(--white);
   font-family: var(--serif);
   font-size: clamp(4.5rem, 19vw, 6rem);
@@ -470,7 +482,7 @@ textarea:focus-visible {
   display: grid;
   align-items: center;
   gap: 5px;
-  min-width: 0;
+  min-width: 118px;
   padding-bottom: 28px;
 }
 
@@ -478,27 +490,30 @@ textarea:focus-visible {
 .hero-date-side::after {
   display: block;
   height: 2px;
+  border-radius: 999px;
   content: "";
   background: linear-gradient(
     90deg,
     transparent,
     #d7b56c,
-    rgba(215, 181, 108, 0.92),
+    rgba(215, 181, 108, 0.95),
     transparent
   );
-  box-shadow: 0 0 10px rgba(215, 181, 108, 0.38);
+  box-shadow:
+    0 0 10px rgba(215, 181, 108, 0.38),
+    0 0 18px rgba(215, 181, 108, 0.22);
 }
 
 .hero-date-side span {
   display: block;
-  overflow: hidden;
+  overflow: visible;
   color: #f5e7c8;
   font-family: var(--serif);
-  font-size: 0.9rem;
-  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
   line-height: 1;
   text-align: center;
-  text-overflow: ellipsis;
+  text-overflow: unset;
   white-space: nowrap;
 }
 
@@ -508,6 +523,7 @@ textarea:focus-visible {
   color: rgba(245, 231, 200, 0.96);
   font-size: 0.74rem;
   letter-spacing: 0.22em;
+  margin-top: 8px;
 }
 
 .hero-date-flourish {
@@ -2081,7 +2097,24 @@ address {
   }
 
   .hero-name-block {
-    margin-bottom: 44px;
+    margin: 10px auto auto;
+  }
+
+  .hero-date-lockup {
+    column-gap: 8px;
+  }
+
+  .hero-date-stack {
+    min-width: 64px;
+  }
+
+  .hero-date-side {
+    min-width: 96px;
+  }
+
+  .hero-date-side span {
+    font-size: 0.74rem;
+    letter-spacing: 0.02em;
   }
 
   .hero-date-stack strong {

@@ -24,7 +24,7 @@ export function Hero({ data }) {
             <span />
           </div>
         </div>
-        <p className="hero-invite">{data.hero.invitation}</p>
+        {data.hero.invitation ? <p className="hero-invite">{data.hero.invitation}</p> : null}
 
         <div className="hero-meta">
           <div className="hero-date-lockup" aria-label={`${data.wedding.displayDate} at ${data.wedding.time}`}>
