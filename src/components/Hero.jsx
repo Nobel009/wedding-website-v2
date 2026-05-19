@@ -8,7 +8,7 @@ export function Hero({ data }) {
   const year = weddingDate.getFullYear()
 
   return (
-    <section id="home" className="hero-section" aria-label="Wedding invitation">
+    <section id="hero" className="hero-section" aria-label="Wedding invitation">
       <img className="hero-image" src={data.hero.image} alt="" />
       <div className="hero-overlay" />
       <div className="hero-floral" />

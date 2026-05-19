@@ -36,7 +36,7 @@ export function PrenupPhotos({ photos }) {
   }, [activeIndex, closePhoto, showNext, showPrevious])
 
   return (
-    <SectionWrapper id="photos" className="prenup-section">
+    <SectionWrapper id="photos" className="prenup-section" wide>
       <div className="prenup-frame">
         <div className="prenup-icon">
           <Icon name="camera" />

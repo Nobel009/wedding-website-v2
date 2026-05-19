@@ -5,7 +5,7 @@ function SectionHeader() {
     <header className="love-story-header">
       <div className="love-story-ornament" aria-hidden="true">
         <span />
-        <strong>♡</strong>
+        <strong>{'\u2661'}</strong>
         <span />
       </div>
       <p>Emma & Lucas</p>
@@ -15,7 +15,7 @@ function SectionHeader() {
       </p>
       <div className="love-story-filigree" aria-hidden="true">
         <span />
-        <strong>♥</strong>
+        <strong>{'\u2665'}</strong>
         <span />
       </div>
     </header>
@@ -39,7 +39,7 @@ function TimelineItem({ story, index }) {
 
 export function LoveStorySection({ stories }) {
   return (
-    <SectionWrapper id="story" className="love-story-section">
+    <SectionWrapper id="love-story" className="love-story-section" wide>
       <div className="love-story-border" aria-hidden="true" />
       <div className="love-story-sparkles" aria-hidden="true">
         <i />

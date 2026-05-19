@@ -20,6 +20,30 @@
   box-shadow: var(--shadow);
 }
 
+@media (min-width: 900px) {
+  .site-frame {
+    padding: 0;
+  }
+
+  .invitation-shell {
+    max-width: none;
+    box-shadow: none;
+  }
+
+  .section,
+  .footer {
+    padding: 86px 48px;
+  }
+
+  .section-inner {
+    max-width: 860px;
+  }
+
+  .section-inner-wide {
+    max-width: 1180px;
+  }
+}
+
 .invitation-shell::before,
 .invitation-shell::after {
   position: fixed;
@@ -50,6 +74,7 @@
   position: relative;
   z-index: 1;
   padding: 58px 22px;
+  scroll-margin-top: 24px;
 }
 
 .section {
@@ -90,6 +115,18 @@
   z-index: 1;
   margin-top: 0;
   margin-bottom: 30px;
+}
+
+.section-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 430px;
+  margin: 0 auto;
+}
+
+.section-inner-wide {
+  max-width: 430px;
 }
 
 .section-heading {
@@ -1611,9 +1648,6 @@ address {
   bottom: 16px;
   left: max(12px, calc(50% - 206px));
   z-index: 24;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 4px;
   max-width: 412px;
   margin: 0 auto;
   padding: 7px;
@@ -1622,6 +1656,31 @@ address {
   background: rgba(14, 12, 9, 0.8);
   box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
   backdrop-filter: blur(16px);
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 240ms ease,
+    transform 240ms ease;
+}
+
+.floating-nav.nav-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px);
+}
+
+.floating-nav-mobile,
+.floating-nav-desktop {
+  display: grid;
+  gap: 4px;
+}
+
+.floating-nav-mobile {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.floating-nav-desktop {
+  display: none;
 }
 
 .floating-nav a {
@@ -1653,6 +1712,29 @@ address {
 
 .floating-nav a:hover {
   transform: translateY(-1px);
+}
+
+@media (min-width: 900px) {
+  .floating-nav {
+    right: 50%;
+    left: auto;
+    width: min(94vw, 930px);
+    max-width: 930px;
+    transform: translateX(50%);
+  }
+
+  .floating-nav.nav-hidden {
+    transform: translateX(50%) translateY(24px);
+  }
+
+  .floating-nav-mobile {
+    display: none;
+  }
+
+  .floating-nav-desktop {
+    display: grid;
+    grid-template-columns: repeat(9, minmax(0, 1fr));
+  }
 }
 
 @keyframes heroScale {
@@ -1718,15 +1800,6 @@ address {
 }
 
 @media (min-width: 760px) {
-  .site-frame {
-    padding: 38px 0;
-  }
-
-  .invitation-shell {
-    border: 10px solid #080704;
-    border-radius: 38px;
-  }
-
   .story-card {
     grid-template-columns: 1fr 86px 1fr;
   }
@@ -1770,6 +1843,71 @@ address {
 
   .venue-card-image img {
     height: 190px;
+  }
+}
+
+@media (min-width: 900px) {
+  .section,
+  .footer {
+    padding: 86px 48px;
+  }
+
+  .section-inner {
+    max-width: 860px;
+  }
+
+  .section-inner-wide {
+    max-width: 1180px;
+  }
+
+  .hero-content {
+    max-width: 520px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(4rem, 6vw, 6.2rem);
+  }
+
+  .hero-kicker {
+    font-size: clamp(6rem, 8vw, 8.5rem);
+  }
+
+  .countdown-grid {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .love-story-flow {
+    max-width: 940px;
+  }
+
+  .timeline {
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  .dress-code-artwork {
+    max-width: 900px;
+  }
+
+  .prenup-frame {
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  .prenup-photo-featured {
+    aspect-ratio: 16 / 9;
+  }
+
+  .prenup-gallery .prenup-photo {
+    aspect-ratio: 4 / 3;
+  }
+
+  .rsvp-section .section-heading,
+  .rsvp-form {
+    max-width: 680px;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
 

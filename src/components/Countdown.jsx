@@ -32,7 +32,7 @@ export function Countdown({ targetDate }) {
   ]
 
   return (
-    <SectionWrapper id="countdown" className="countdown-section">
+    <SectionWrapper id="save-date" className="countdown-section">
       <SectionHeading eyebrow="Save the Date" title="The Countdown to Forever Has Begun" />
       <div className="countdown-grid" aria-live="polite">
         {units.map(([label, value]) => (

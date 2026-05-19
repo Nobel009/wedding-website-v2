@@ -46,7 +46,7 @@ export const RSVP = forwardRef(function RSVP({ rsvp, couple }, ref) {
   }
 
   return (
-    <SectionWrapper ref={ref} id="rsvp" className="rsvp-section">
+    <SectionWrapper ref={ref} id="rsvp" className="rsvp-section" wide>
       <SectionHeading eyebrow="Kindly Reply" title="RSVP">
         Please respond by {rsvp.deadline}.
       </SectionHeading>

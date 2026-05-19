@@ -3,7 +3,7 @@ import { SectionWrapper } from './SectionWrapper'
 
 export function MusicPlayer({ music, isPlaying, onToggle }) {
   return (
-    <SectionWrapper id="music" className="music-section" showDivider={false}>
+    <SectionWrapper id="song" className="music-section" showDivider={false}>
       <div className="music-card">
         <button
           className="round-button"

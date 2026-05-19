@@ -2,7 +2,7 @@ import { SectionWrapper } from './SectionWrapper'
 
 export function DressCode({ dressCode }) {
   return (
-    <SectionWrapper id="dress-code" className="dress-code-section">
+    <SectionWrapper id="dress-code" className="dress-code-section" wide>
       <div className="dress-code-artwork">
         <img
           src={dressCode.image}

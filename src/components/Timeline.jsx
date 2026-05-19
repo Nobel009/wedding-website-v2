@@ -3,7 +3,7 @@ import { SectionWrapper } from './SectionWrapper'
 
 export function Timeline({ items }) {
   return (
-    <SectionWrapper id="timeline" className="timeline-section">
+    <SectionWrapper id="timeline" className="timeline-section" wide>
       <header className="timeline-header">
         <div className="timeline-flourish" aria-hidden="true">
           <span />
